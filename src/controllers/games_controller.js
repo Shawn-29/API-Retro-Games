@@ -113,7 +113,7 @@ const getGames = async (req, res) => {
         };
     }
 
-    const cacheKey = Object.values(tblFilters).flatMap(filter => filter.values).join('');
+    let cacheKey = Object.values(tblFilters).flatMap(filter => filter.values).join('');
 
     const cacheResult = queryCache.get(cacheKey);
     if (cacheResult) {
@@ -326,6 +326,10 @@ const getGames = async (req, res) => {
                 }
             };
 
+            /* add pagination info to the cache key */
+            cacheKey += pgn + maxPgn + ipl;
+
+            /* cache this response's data */
             queryCache.set(cacheKey, data);
 
             res.status(OK)
