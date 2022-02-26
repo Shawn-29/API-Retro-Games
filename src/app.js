@@ -22,7 +22,7 @@ app.use((_, res, next) => {
     res.header("Access-Control-Allow-Origin", process.env.HOST_URL);
     next();
 });
-
+app.use(require('helmet')());
 app.use(require('express-rate-limit')({
     windowMs: 60000,
     max: 120,
