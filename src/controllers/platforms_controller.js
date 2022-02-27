@@ -11,7 +11,7 @@ const getPlatforms = async (_, res) => {
         if (err) {
             return res.status(NOT_FOUND)
                 .json({
-                    result: [],
+                    platforms: null,
                     error: 'Could not get platform data.'
                 });
         }

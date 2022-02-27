@@ -29,7 +29,7 @@ const getFeaturedGames = async (_, res) => {
             if (err) {
                 return res.status(NOT_FOUND)
                     .json({
-                        result: [],
+                        featured_games: null,
                         error: 'Could not get featured games.'
                     });
             }

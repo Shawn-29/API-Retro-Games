@@ -47,7 +47,8 @@ const getPlatform = async (req, res) => {
         .catch(() => {
             res.status(NOT_FOUND)
                 .json({
-                    result: [],
+                    data: null,
+                    genres: null,
                     error: 'Could not get specific platform data.'
                 });
         });

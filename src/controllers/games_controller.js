@@ -286,7 +286,7 @@ const getGames = async (req, res) => {
             if (err) {
                 return res.status(NOT_FOUND)
                     .json({
-                        result: [],
+                        data: null,
                         error: 'Could not get game data.'
                     });
             }
